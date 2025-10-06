@@ -1,0 +1,10 @@
+torch
+torchvision
+numpy
+scikit-learn
+seaborn
+matplotlib
+tensorflow-macos
+pandas
+wandb
+pytorch_lightning
