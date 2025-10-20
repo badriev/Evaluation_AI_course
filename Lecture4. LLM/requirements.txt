@@ -1,0 +1,13 @@
+openai
+google
+datasets
+tensorflow-macos
+sentence_transformers
+evaluate
+sacrebleu
+nltk
+diversity
+language_tool_python
+textdescriptives
+transformers
+torch
