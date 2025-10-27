@@ -1,4 +1,9 @@
-from ai_client import openai_chat_v3
+# from ai_proxy_client import google_chat_v3
+from ai_client import google_chat_v3
+
+"""
+В случае использования proxy, мы полностью удаляем импорт обычного ai_client или комментируем его.
+"""
 
 
 def basic_llm_judge(question, answer):
@@ -15,7 +20,8 @@ def basic_llm_judge(question, answer):
 Верни только число от 1 до 10 и краткое объяснение.
 """
 
-    response = openai_chat_v3(prompt, model="gpt-4o-mini", temperature=0.1)
+    response = google_chat_v3(
+        prompt, model="gemini-2.0-flash", temperature=0.1)
     return response
 
 
