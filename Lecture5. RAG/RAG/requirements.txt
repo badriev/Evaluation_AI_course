@@ -1,0 +1,47 @@
+# Основные зависимости
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+
+# Обработка файлов
+PyPDF2
+pdfplumber
+python-docx
+openpyxl
+python-multipart
+
+# Парсинг и обработка текста
+beautifulsoup4
+lxml
+markdown
+
+# LLM и Embeddings
+openai
+anthropic
+sentence-transformers
+transformers
+torch
+
+# Векторные базы данных
+chromadb
+pinecone
+faiss-cpu
+
+# Утилиты
+python-dotenv
+httpx
+aiofiles
+numpy
+pandas
+
+# Безопасность и авторизация
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+
+# Мониторинг и логирование
+loguru
+
+# Развертывание
+gunicorn

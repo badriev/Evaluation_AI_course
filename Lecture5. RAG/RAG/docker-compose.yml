@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  rag-api:
+    build: .
+    container_name: rag-system-api
+    ports:
+      - "8002:8002"
+    environment:
+      - DEBUG=false
+      - API_HOST=0.0.0.0
+      - API_PORT=8002
+      - DOCUMENTS_STORAGE_PATH=/home/app/storage/documents
+      - VECTOR_DB_PATH=/home/app/storage/vector_db
+      - CHROMA_PERSIST_DIRECTORY=/home/app/storage/vector_db/chroma
+    volumes:
+      - ./storage:/home/app/storage
+      - ./.env.example:/home/app/.env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+# Опциональные сервисы для продакшена
+
+# PostgreSQL база данных
+# postgres:
+#   image: postgres:15
+#   container_name: rag-postgres
+#   environment:
+#     POSTGRES_DB: rag_db
+#     POSTGRES_USER: rag_user
+#     POSTGRES_PASSWORD: rag_password
+#   volumes:
+#     - postgres_data:/var/lib/postgresql/data
+#   ports:
+#     - "5432:5432"
+#   restart: unless-stopped
+
+# Redis для кэширования
+# redis:
+#   image: redis:7-alpine
+#   container_name: rag-redis
+#   ports:
+#     - "6379:6379"
+#   volumes:
+#     - redis_data:/data
+#   restart: unless-stopped
+
+# Nginx для проксирования (продакшен)
+# nginx:
+#   image: nginx:alpine
+#   container_name: rag-nginx
+#   ports:
+#     - "80:80"
+#     - "443:443"
+#   volumes:
+#     - ./nginx.conf:/etc/nginx/nginx.conf
+#     - ./ssl:/etc/nginx/ssl
+#   depends_on:
+#     - rag-api
+#   restart: unless-stopped
+
+volumes:
+  storage:
+    driver: local
+  # postgres_data:
+  # redis_data:
