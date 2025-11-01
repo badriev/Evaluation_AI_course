@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
     rag_connector = RAGConnector(
         endpoint_url="http://5.11.83.110:8002/api/v1/chat/",
-        api_key="80456142-5441-4469-b97f-1d72b7802a93",
+        api_key="rag-api-key",
         timeout=30
     )
 

@@ -70,7 +70,7 @@ class Settings(BaseSettings):
     REDIS_URL: Optional[str] = None
 
     # Безопасность
-    SECRET_KEY: str = "80456142-5441-4469-b97f-1d72b7802a93"
+    SECRET_KEY: str = "supersecretkey"
 
     # RAG настройки
     MAX_RELEVANT_CHUNKS: int = 5

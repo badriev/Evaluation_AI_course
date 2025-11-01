@@ -5,7 +5,7 @@ def call_api(prompt, options=None, context=None):
     response = requests.post(
         "http://5.11.83.110:8002/api/v1/chat/",
         json={"message": prompt},
-        headers={'X-API-Key': '80456142-5441-4469-b97f-1d72b7802a93'}
+        headers={'X-API-Key': 'rag-api-key'}
     )
     data = response.json()
 
