@@ -211,7 +211,8 @@ async def scenario_1():
     agent = AgentConnector(
         endpoint_url="http://5.11.83.110:8004/ask",
         api_key="80456142-5441-4469-b97f-1d72b7802a93",
-        user_id="AleksM"
+        user_id="AleksM",
+        session_id="faecb783-d996-49ee-97a0-f13805f63a52"
     )
 
     # Proxy модель
